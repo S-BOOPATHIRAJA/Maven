@@ -20,7 +20,7 @@ public class App
     {
     	
     	AnnotationConfiguration an=new AnnotationConfiguration();
-    	an.configure("./Resources.hiber.cfg.xml");
+    	an.configure("./Resources/hiber.cfg.xml");
     	 SessionFactory sf= an.buildSessionFactory();
          Session ss = sf.openSession();
          Transaction trn= ss.beginTransaction();
@@ -31,9 +31,10 @@ public class App
          List<Userdetails> l= qr.list();
          l.stream().forEach(e->
          {
-        	System.out.print(e.getU_name()+": ");
+        	System.out.println(e.getU_name()+": ");
         	e.getOrderdetails().stream().forEach(t->
-        	System.out.println(t.getProduct_name()+"/ "+t.getPrice()));
+        	System.out.println(t.getProduct_name()+"/ "+t.getPrice()))
+        	;System.out.println("----------------------------");
          });
     }
  }

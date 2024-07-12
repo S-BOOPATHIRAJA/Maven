@@ -17,29 +17,21 @@ public class Userdetails {
 
 	@Id
 	@Column(name = "U_id", nullable=false,unique=true)
-	private int U_id;
+	private long U_id;
 	private String U_name;
-	private int Aadhar_no;
-	private int phone_no;
+	private long Aadhar_no;
+	private long phone_no;
 	private String Address;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL )
 	@JoinColumn(name = "U_id")
     private List <Orderdetails> orderdetails;
 
-	public List<Orderdetails> getOrderdetails() {
-		return orderdetails;
-	}
-
-	public void setOrderdetails(List<Orderdetails> orderdetails) {
-		this.orderdetails = orderdetails;
-	}
-
-	public int getU_id() {
+	public long getU_id() {
 		return U_id;
 	}
 
-	public void setU_id(int u_id) {
+	public void setU_id(long u_id) {
 		U_id = u_id;
 	}
 
@@ -51,19 +43,19 @@ public class Userdetails {
 		U_name = u_name;
 	}
 
-	public int getAadhar_no() {
+	public long getAadhar_no() {
 		return Aadhar_no;
 	}
 
-	public void setAadhar_no(int aadhar_no) {
+	public void setAadhar_no(long aadhar_no) {
 		Aadhar_no = aadhar_no;
 	}
 
-	public int getPhone_no() {
+	public long getPhone_no() {
 		return phone_no;
 	}
 
-	public void setPhone_no(int phone_no) {
+	public void setPhone_no(long phone_no) {
 		this.phone_no = phone_no;
 	}
 
@@ -75,13 +67,19 @@ public class Userdetails {
 		Address = address;
 	}
 
-	
+	public List<Orderdetails> getOrderdetails() {
+		return orderdetails;
+	}
+
+	public void setOrderdetails(List<Orderdetails> orderdetails) {
+		this.orderdetails = orderdetails;
+	}
 
 	@Override
 	public String toString() {
 		return "Userdetails [U_id=" + U_id + ", U_name=" + U_name + ", Aadhar_no=" + Aadhar_no + ", phone_no="
 				+ phone_no + ", Address=" + Address + ", orderdetails=" + orderdetails + "]";
 	}
-	
+
 	
 }
